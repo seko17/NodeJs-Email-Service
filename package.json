@@ -6,7 +6,8 @@
     "nodemailer": "^6.9.8"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "vercel-build": "echo hello"
   },
   "name": "email-service",
   "version": "1.0.0",
