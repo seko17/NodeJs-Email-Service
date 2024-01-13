@@ -16,8 +16,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
   auth: {
-    user:process.env.GMAIL_USER , // Replace with your email
-    pass: process.env.GMAIL_PASSWORD, // Replace with your email password
+    user:process.env.GMAIL_USER , 
+    pass: process.env.GMAIL_PASSWORD,
   },
 });
 
@@ -25,7 +25,7 @@ app.post('/send-email', (req, res) => {
   const { to, subject, text, attachments } = req.body;
 
   const mailOptions = {
-    from: 'sisekodolwana17@gmail.com',
+    from: process.env.GMAIL_EMAIL,
     to,
     subject,
     text,
@@ -47,5 +47,3 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-module.exports = { app }
